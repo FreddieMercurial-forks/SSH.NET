@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Net;
 using System.Net.Sockets;
@@ -65,7 +65,8 @@ namespace Renci.SshNet.Abstractions
 #if FEATURE_TAP
         public static Task ConnectAsync(Socket socket, IPEndPoint remoteEndpoint, CancellationToken cancellationToken)
         {
-            return socket.ConnectAsync(remoteEndpoint, cancellationToken);
+            var result = socket.ConnectAsync(remoteEndpoint, cancellationToken);
+            return Task.FromResult(result);
         }
 #endif
 
